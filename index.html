@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>á la FRISK</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="">
+
+
+    <style>
+        :root {
+            --navy: #052f4d;
+            --dustyblue: #9fb2b5;
+            --lysorange: #ed9045;
+            --orange: #dc5a01;
+            --hvid: #ffffff;
+
+            --roboto: 'Roboto', sans-serif;
+            --frede: 'Fredericka the Great', cursive;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--roboto);
+        }
+
+        /*        mobil baggrund*/
+
+        .dest_baggrund {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 1fr 1fr 2fr 1fr 2fr 1fr;
+            grid-gap: 10px;
+
+
+        }
+
+        .forside_logo {
+            grid-area: logo;
+            grid-column-start: 2;
+            grid-column-end: 12;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+
+        .orange_box {
+            width: 100vw;
+            height: 5vw;
+            background-color: rgba(237, 144, 69, 0.5);
+            grid-column-start: 1;
+            grid-column-end: 12;
+            grid-row-start: 6;
+            align-self: end;
+        }
+
+        .baggrund {
+            background-image: url(billeder/baggrunde/mobile_portrait.jpg);
+            background-size: 100%;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .baggrund_lag {
+            background-color: rgba(159, 178, 181, 0.75);
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+        }
+
+        /*        mobil baggrund slut */
+
+        /*        mobil menu*/
+
+        .menuknap {
+            width: 100%;
+            height: 50%;
+            grid-column-end: 12;
+            align-self: end;
+        }
+
+        .menubutton {
+            width: 2em;
+            height: 2em;
+
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+
+        .bar {
+            width: 2em;
+            height: 0.2em;
+            background-color: var(--lysorange);
+        }
+
+        .drop_down {
+            background-color: var(--dustyblue);
+            display: grid;
+            width: 100vw;
+            height: 65vh;
+            grid-template-columns: 1fr 2fr 6fr 2fr 1fr;
+
+            grid-template-rows: 1fr 1fr 2fr 6fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+
+            position: absolute;
+            transform: translateY(1);
+            transform-origin: top;
+            transition: transform .5s;
+            right: 0;
+
+        }
+
+        .menu_tekst {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-start: 3;
+            justify-self: center;
+            align-self: end;
+            margin-bottom: 3vw;
+
+        }
+
+        .wave {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-start: 3;
+            align-self: end;
+        }
+
+        h1 {
+            font-family: var(--frede);
+            color: var(--hvid);
+            font-size: 2.6em;
+            margin: 0;
+
+        }
+
+        li {
+            font-family: var(--roboto);
+        }
+
+        .liste {
+            grid-column-start: 2;
+            grid-column-end: 5;
+            grid-row-start: 3;
+            grid-row-start: 4;
+            align-self: start;
+            line-height: 2;
+            color: var(--navy);
+            font-family: var(--roboto);
+            font-size: 1.5em;
+        }
+
+        .fed {
+            font-weight: 900;
+        }
+
+        .lukknap {
+            width: 30%;
+            height: 100%;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 6;
+            grid-row-end: 7;
+            justify-self: center;
+        }
+
+        .closebutton {
+            width: 4em;
+            height: 4em;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .streg1 {
+            transform: rotate(-45deg) translate(-12px, 20px);
+
+        }
+
+        .streg2 {
+            transform: rotate(225deg) translate(-12px, -20px);
+        }
+
+        .display_none {
+            /*            display: none;*/
+            transform: translateY(-420px);
+        }
+
+        /*        mobil menu slut */
+
+        /*        om section */
+        .filler {
+            width: 100vw;
+            height: 3vh;
+        }
+
+
+
+        .om_section {
+            max-width: 400px;
+            margin: 10vw;
+        }
+
+        p {
+            line-height: 1.5;
+            color: var(--navy);
+            font-family: var(--roboto);
+            font-weight: 300;
+        }
+
+        .stortekst {
+            font-size: 1.5em;
+        }
+
+        .centreret {
+            text-align: center;
+            color: var(--lysorange);
+        }
+
+        /*        om section slut*/
+
+        /*        footer */
+        footer {
+            width: 100vw;
+            background-color: var(--navy);
+            padding: 5vh 0;
+        }
+
+        .footer_container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        footer .footer_item {
+
+            padding: 0 10vw;
+        }
+
+        .footer_indhold {
+            max-width: 400px;
+            margin: 0 auto;
+            color: var(--hvid);
+        }
+
+        footer p {
+            color: var(--hvid);
+        }
+
+        /*        footer slut*/
+
+    </style>
+</head>
+
+<body>
+
+    <div class="baggrund_lag"></div>
+    <div class="dest_baggrund">
+
+        <div class="menuknap">
+            <div class="menubutton">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+        </div>
+
+        <div class="forside_logo"> <img src="billeder/logoer/logo_navy.svg" alt="logo"> </div>
+        <div class="orange_box"></div>
+        <div class="drop_down display_none">
+            <div class="menu_tekst">
+                <h1>MENU</h1>
+            </div>
+            <div class="wave"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
+            <div class="liste">
+                <ul>
+                    <li class="om">Om <span class="fed">á la FRISK</span></li>
+                    <li class="mad">Mad</li>
+                    <li class="book">Book et bord</li>
+                    <li class="kontakt">Kontakt</li>
+                </ul>
+            </div>
+            <div class="lukknap">
+                <div class="closebutton">
+                    <div class="bar streg1"></div>
+                    <div class="bar streg2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="baggrund"></div>
+
+    <section class="om_section">
+        <div class="filler"></div>
+        <p><span class="fed stortekst">á la FRISK</span> er en fransk-inspireret fiskerestaurant i hjertet af København. Stedet oser af hygge, og den særprægede og detaljerige indretning er en oplevelse i sig selv. Udover klassiske fiske- og skaldyrsretter, serverer vi også andre franske retter - såsom fois gras og snegle.
+            Har du en sød tand, så har vi også lækre desserter på menuen.
+            Kom og nyd et lækkert måltid, eller drik en lækker cocktail - uanset hvad, så er á la FRISK stedet.
+            <br></p><br>
+        <p class="centreret stortekst"><span class="fed">"Oui"</span> tager godt imod dig!
+        </p>
+        <div class="filler"></div>
+        <div class="filler"></div>
+    </section>
+    <footer>
+        <div class="footer_indhold">
+            <div class="footer_container">
+                <div class="footer_item">
+                    <h4>ADRESSE</h4>
+                    <p>Kultorvet 197 · 1234 København K</p>
+                </div>
+                <div class="footer_item">
+                    <h4>ÅBNINGSTIDER</h4>
+                    <p>Mandag-fredag 10:30 - 22:00<br>Lørdag 12:00 - 23:00</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.querySelector(".menuknap").addEventListener("click", menu);
+
+        function menu() {
+            console.log("der er klikket på menuen");
+            document.querySelector(".drop_down").classList.remove("display_none");
+
+
+            document.querySelector(".om").addEventListener("click", om);
+            document.querySelector(".lukknap").addEventListener("click", lukMenu);
+        }
+
+        function lukMenu() {
+            console.log("luk menu");
+
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+
+        function om() {
+            console.log("der er klikket på om");
+            document.querySelector('.om_section').scrollIntoView({
+                behavior: 'smooth'
+            });
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+
+    </script>
+</body>
+
+</html>

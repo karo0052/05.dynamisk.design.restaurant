@@ -1,0 +1,226 @@
+[
+    {
+        "id": 1,
+        "kategori": "forretter",
+        "navn": "Kammuslinger",
+        "pris": 129,
+        "beskrivelse": "Kammuslinger stegt med forårsløg, edamamebønner og sorte sesamfrø",
+        "billede": "kammuslinger"
+  },
+    {
+        "id": 2,
+        "kategori": "forretter",
+        "navn": "Hummer",
+        "pris": 219,
+        "beskrivelse": "Hummer med grøntsager og grøn krydderurtesauce",
+        "billede": "hummer"
+  },
+    {
+        "id": 3,
+        "kategori": "forretter",
+        "navn": "Stegte porrer",
+        "pris": 69,
+        "beskrivelse": "Stegte porrer med ostesauce",
+        "billede": "porrer"
+  },
+    {
+        "id": 4,
+        "kategori": "forretter",
+        "navn": "Ratatouille",
+        "pris": 79,
+        "beskrivelse": "Ratatouille af aubergine, squash, tomat og peberfrugt",
+        "billede": "ratatouille"
+  },
+    {
+        "id": 5,
+        "kategori": "forretter",
+        "navn": "Snegle",
+        "pris": 99,
+        "beskrivelse": "Snegle med hvidløgs- og persillesmør",
+        "billede": "snegle"
+  },
+    {
+        "id": 6,
+        "kategori": "hovedretter",
+        "navn": "Blæksprutte",
+        "pris": 149,
+        "beskrivelse": "Grillet blæksprutte med chipotle på bund af ærtepuré",
+        "billede": "blæksprutte"
+  },
+    {
+        "id": 7,
+        "kategori": "hovedretter",
+        "navn": "Fish 'n' chips",
+        "pris": 109,
+        "beskrivelse": "Klassisk fish 'n' chips med råstegte kartofler og hjemmelavet remoulade",
+        "billede": "fishchips"
+  },
+    {
+        "id": 8,
+        "kategori": "hovedretter",
+        "navn": "Makrel",
+        "pris": 119,
+        "beskrivelse": "Helstegt makrel med garniture af grøntsager",
+        "billede": "fisk"
+  },
+    {
+        "id": 9,
+        "kategori": "hovedretter",
+        "navn": "Fiskegryde",
+        "pris": 119,
+        "beskrivelse": "Krydret og fyldig fiskegryde med kokosmælk. Serveres med ris",
+        "billede": "fiskegryde"
+  },
+    {
+        "id": 10,
+        "kategori": "hovedretter",
+        "navn": "Fois gras",
+        "pris": 179,
+        "beskrivelse": "Stegt fois gras med syltede kirsebær",
+        "billede": "foisgras"
+  },
+    {
+        "id": 11,
+        "kategori": "hovedretter",
+        "navn": "Laks",
+        "pris": 139,
+        "beskrivelse": "Dampet laks på grøntagsbund",
+        "billede": "laks"
+  },
+    {
+        "id": 12,
+        "kategori": "hovedretter",
+        "navn": "Muslinger",
+        "pris": 179,
+        "beskrivelse": "Muslinger i sauce af fløde og hvidvin",
+        "billede": "muslinger"
+  },
+    {
+        "id": 13,
+        "kategori": "hovedretter",
+        "navn": "Tilapia",
+        "pris": 119,
+        "beskrivelse": "Stegt tilapia med krydderurter i ærtesuppe",
+        "billede": "tilapia"
+  },
+    {
+        "id": 14,
+        "kategori": "hovedretter",
+        "navn": "Torsk",
+        "pris": 119,
+        "beskrivelse": "Torsk i krydret karrysauce",
+        "billede": "torsk"
+  },
+    {
+        "id": 15,
+        "kategori": "desserter",
+        "navn": "Crème pâtissière",
+        "pris": 89,
+        "beskrivelse": "Cremet og fyldig crème pâtissière på bund af karamel. Serveres med vaniljeis og vaffel",
+        "billede": "cremepatissiere"
+  },
+    {
+        "id": 16,
+        "kategori": "desserter",
+        "navn": "Raspberry Charlotte",
+        "pris": 119,
+        "beskrivelse": "Trifli med ladyfingers og friske hindbær (min. 2 pers.)",
+        "billede": "raspberrycharlotte"
+  },
+    {
+        "id": 17,
+        "kategori": "desserter",
+        "navn": "Crepes",
+        "pris": 59,
+        "beskrivelse": "Klassiske crepes med vaniljecreme og jordbær",
+        "billede": "crepes"
+  },
+    {
+        "id": 18,
+        "kategori": "desserter",
+        "navn": "Macarons",
+        "pris": 59,
+        "beskrivelse": "Søde, marengsbaseret kager med smag af pistache, citron, karamel og kirsebær",
+        "billede": "macarons"
+  },
+    {
+        "id": 19,
+        "kategori": "desserter",
+        "navn": "Creme Brulee",
+        "pris": 75,
+        "beskrivelse": "Fast creme med karamelliseret overflade. Serveres med friske bær",
+        "billede": "cremebrulee"
+  },
+    {
+        "id": 20,
+        "kategori": "drikkevarer",
+        "navn": "Mimosa",
+        "pris": 54,
+        "beskrivelse": "Frisk og lækker cocktail af champagne og appelsinjuice",
+        "billede": "mimosa"
+  },
+    {
+        "id": 21,
+        "kategori": "drikkevarer",
+        "navn": "Coca Cola",
+        "pris": 28,
+        "beskrivelse": "Vælg mellem alm. eller ZERO. Serveres med is og en skive citron",
+        "billede": "cola"
+  },
+    {
+        "id": 22,
+        "kategori": "drikkevarer",
+        "navn": "French 75",
+        "pris": 54,
+        "beskrivelse": "Forfriskende cocktail gin, champagne og citronjuice",
+        "billede": "french75"
+  },
+    {
+        "id": 23,
+        "kategori": "drikkevarer",
+        "navn": "Bloody Mary",
+        "pris": 54,
+        "beskrivelse": "Spicy cocktail med vodka, tomatjuice og tabasco",
+        "billede": "bloodymary"
+  },
+    {
+        "id": 24,
+        "kategori": "drikkevarer",
+        "navn": "Husets vin",
+        "pris": 45,
+        "beskrivelse": "1 glas af husets vin. Vælg mellem rød eller hvid",
+        "billede": "husetsvin"
+  },
+    {
+        "id": 25,
+        "kategori": "drikkevarer",
+        "navn": "Kir",
+        "pris": 54,
+        "beskrivelse": "Aperitif af solbærlikør og hvidvin",
+        "billede": "kir"
+  },
+    {
+        "id": 26,
+        "kategori": "drikkevarer",
+        "navn": "French 75 - grape",
+        "pris": 54,
+        "beskrivelse": "Forfriskende cocktail gin, champagne og grapejuice",
+        "billede": "french75grapefruit"
+  },
+    {
+        "id": 27,
+        "kategori": "drikkevarer",
+        "navn": "Muscat",
+        "pris": 45,
+        "beskrivelse": "Et glas vin med stor smag og sødme",
+        "billede": "muscatvin"
+  },
+    {
+        "id": 28,
+        "kategori": "drikkevarer",
+        "navn": "Sidecar",
+        "pris": 54,
+        "beskrivelse": "Cocktail af cognac, cointreau og citronjuice",
+        "billede": "sidecar"
+  }
+]

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>á la FRISK - mad</title>
+    <style>
+        :root {
+            --navy: #052f4d;
+            --dustyblue: #9fb2b5;
+            --lysorange: #ed9045;
+            --orange: #dc5a01;
+            --hvid: #ffffff;
+
+            --roboto: 'Roboto', sans-serif;
+            --frede: 'Fredericka the Great', cursive;
+        }
+
+        body {
+            background-color: var(--dustyblue);
+        }
+
+        article {
+            padding: 15px;
+            background-color: white;
+            height: 92vh;
+        }
+
+        .data-destination article img {
+            width: 100%;
+        }
+
+        .data-destination {
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        button {
+            margin: 10px 0;
+            background-color: var(--lysorange);
+            padding: 10px 20px;
+            font-family: var(--roboto);
+            font-weight: 200;
+            font-size: 1em;
+            color: white;
+        }
+
+        .data-destination h2 {
+            font-family: var(--roboto);
+            color: var(--navy);
+        }
+
+        .data-beskrivelse {
+            color: var(--navy);
+            font-weight: 100;
+            font-family: var(--roboto);
+        }
+
+        .data-pris {
+            color: var(--navy);
+            font-family: var(--frede);
+            font-size: 1.5em;
+            text-align: right;
+        }
+
+        .knap {
+            text-align: center;
+        }
+
+        /*
+        @media screen and (min-width:700px) {
+            .data-destination {
+                padding-left: 10%;
+                padding-right: 10%;
+                grid-template-columns: repeat(1, 1fr);
+                max-width: 600px;
+            }
+        }
+
+        @media screen and (min-width:580px) {
+            .data-destination {
+                max-width: 800px;
+            }
+        }
+*/
+
+    </style>
+</head>
+
+<body>
+
+    <section class="data-destination">
+        <article class="ret">
+            <img src="" alt=""><br>
+            <h2></h2>
+            <p class="data-beskrivelse"></p>
+            <p class="data-pris"></p>
+            <br>
+            <div class="knap"><button class="tilbage">TILBAGE</button></div>
+            <br>
+        </article>
+    </section>
+
+
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        console.log(id);
+
+        let menu;
+        document.addEventListener("DOMContentLoaded", hentJson);
+        async function hentJson() {
+            let myJson = await fetch("json.json");
+            menu = await myJson.json();
+            visRet();
+        }
+
+        function visRet() {
+            let destination = document.querySelector(".data-destination");
+            menu.forEach(ret => {
+                if (ret.id == id) {
+                    destination.querySelector("h2").textContent = ret.navn;
+                    destination.querySelector("img").src = "billeder/small/" + ret.billede + "-sm.jpg";
+                    destination.querySelector(".data-beskrivelse").textContent = ret.beskrivelse;
+                    destination.querySelector(".data-pris").textContent = ret.pris + ",-";
+                    document.querySelector("button").addEventListener("click", () => {
+                        window.history.back();
+                    })
+
+                }
+
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -131,6 +131,10 @@
             grid-row-start: 5;
             grid-row-end: 6;
             /*            background-color: rgba(255, 255, 0, 0.15);*/
+
+        }
+
+        .ikoner_container {
             display: grid;
             grid-column-gap: 0px;
             grid-row-gap: 0px;
@@ -187,7 +191,7 @@
             grid-column-end: 12;
             grid-row-start: 6;
             grid-row-end: 7;
-            color: var(--navy);
+
             align-self: end;
         }
 
@@ -206,6 +210,18 @@
 
         .navy {
             color: var(--navy);
+        }
+
+        .dustyblue {
+            color: var(--dustyblue);
+        }
+
+        .lysorange {
+            color: var(--lysorange);
+        }
+
+        .orange {
+            color: var(--orange);
         }
 
         .data-dest_kategori h2 {
@@ -229,6 +245,15 @@
         .data-dest_pris p {
             font-family: var(--frede);
             font-size: 1.2em;
+        }
+
+        .wave_mad {
+            grid-column-start: 5;
+            grid-column-end: 9;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            align-self: end;
+            display: none;
         }
 
         /*        mobil baggrund slut */
@@ -425,10 +450,209 @@
             grid-template-columns: 1fr;
             grid-template-rows: auto;
         }
+
+        .skjul_knap {
+            display: none;
+        }
+
+        #modal-content {
+            height: 0;
+        }
+
+
+        /* ipad */
+
+        @media only screen and (min-width: 401px) {
+
+            /* ipad */
+
+
+            .display_none {
+                /*            display: none;*/
+                transform: translateY(-800px);
+            }
+
+            .drop_down {
+                width: 55vw;
+                height: 50vh;
+
+            }
+
+            .dest_mad {
+                grid-template-rows: 30px 120px auto auto 23% auto;
+
+            }
+
+
+            .mad_logo img {
+                max-height: 65%;
+            }
+
+
+            .mad_billede img {
+                max-width: 100%;
+            }
+
+            .ikoner {
+
+                grid-row-start: 5;
+                grid-row-end: 6;
+                grid-column-start: 3;
+                grid-column-end: 11;
+                align-self: center;
+
+            }
+
+            .mad_billede {
+                justify-self: center;
+
+                grid-row-start: 4;
+                grid-row-end: 5;
+                margin-top: 20px;
+                grid-column-start: 3;
+                grid-column-end: 11;
+
+            }
+
+            .h1_mad {
+                grid-row-start: 3;
+                grid-row-end: 4;
+                padding-top: 30px;
+
+            }
+
+            .wave_mad {
+                display: block;
+            }
+
+            .data-dest_kategori {
+                grid-column-start: 3;
+
+            }
+
+            .data-dest_navn {
+                grid-column-start: 3;
+            }
+
+            .data-dest_kategori h2 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+
+            .data-dest_pris {
+                grid-column-start: 10;
+                grid-column-end: 11;
+                grid-row-start: 7;
+                grid-row-end: 8;
+                color: var(--navy);
+            }
+
+            /* modal */
+            #modal {
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                text-align: center;
+                background-color: rgba(0, 0, 0, .7);
+                opacity: 0;
+                pointer-events: none;
+                transition: 1s;
+                overflow: scroll;
+            }
+
+
+            #modal-content {
+                width: 80%;
+                height: auto;
+                background-color: rgba(250, 250, 250, 1);
+                margin: auto;
+                margin-top: 5vw;
+                padding: 1em;
+
+            }
+
+            #modal-content button {
+                margin: 10px 0;
+                background-color: var(--lysorange);
+                padding: 10px 20px;
+                font-family: var(--roboto);
+                font-weight: 200;
+                font-size: 1em;
+                color: white;
+            }
+
+            #modal.vis {
+                opacity: 1;
+                pointer-events: all;
+                transition: 0.4s;
+
+            }
+
+            .modal-billede {
+                max-width: 100%;
+
+            }
+
+            .modal-navn {
+                max-width: 80%;
+                font-family: var(--roboto);
+                text-align: left;
+                color: var(--navy);
+            }
+
+            .modal-beskrivelse {
+                text-align: left;
+                color: var(--navy);
+                font-weight: 100;
+                font-family: var(--roboto);
+            }
+
+            .modal-pris {
+                text-align: right;
+                font-family: var(--frede);
+                color: var(--navy);
+                font-size: 1.5em;
+            }
+
+
+        }
+
+        @media only screen and (min-width: 500px) {
+            .footer_container {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+            }
+
+            .footer_indhold {
+                max-width: 800px;
+            }
+
+            .transparent_box {
+                width: 100vw;
+                height: 700px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <section id="modal">
+        <div id="modal-content">
+
+            <br>
+            <img class="modal-billede" src="" alt="">
+            <h2 class="modal-navn"></h2>
+            <p class="modal-beskrivelse"></p>
+            <p class="modal-pris"></p>
+            <button class=" modal_knap skjul_knap">Luk</button>
+        </div>
+        <!--
+<section id="klikker">
+</section>
+-->
+
+    </section>
 
     <div class="dest_mad">
         <!--       <div clas="baggrund_mad"><img src="" alt="baggrund tekstur"></div>-->
@@ -449,13 +673,15 @@
         <div class="h1_mad">
             <h1>MAD</h1>
         </div>
+        <div class="wave_mad"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
         <div class="ikoner">
-            <div class="forretter menu-item"> </div>
-            <div class="hovedretter menu-item"></div>
-            <div class="desserter menu-item">
-            </div>
-            <div class="drikkevarer menu-item">
-
+            <div class="ikoner_container">
+                <div class="forretter menu-item"> </div>
+                <div class="hovedretter menu-item"></div>
+                <div class="desserter menu-item">
+                </div>
+                <div class="drikkevarer menu-item">
+                </div>
             </div>
         </div>
 
@@ -596,6 +822,14 @@
             //indsæt kategori
             klon.querySelector("h2").textContent = "Forretter";
 
+            // giv kategorien en farve
+            document.querySelector(".data-dest_kategori").classList.remove("lysorange");
+            document.querySelector(".data-dest_kategori").classList.remove("dustyblue");
+            document.querySelector(".data-dest_kategori").classList.remove("orange");
+            document.querySelector(".data-dest_kategori").classList.remove("navy");
+
+            document.querySelector(".data-dest_kategori").classList.add("navy");
+
             //placer klon i html
             dest_kategori.appendChild(klon);
 
@@ -609,7 +843,12 @@
                     klon.querySelector(".data-navn").innerHTML = "<li><span class='navy'>" + ret.navn + "</span></li>";
 
                     klon.querySelector(".data-navn").addEventListener("click", () => {
-                        window.location.href = "single.html?id=" + ret.id;
+
+                        if (window.innerWidth >= 401) {
+                            visModal(ret);
+                        } else {
+                            window.location.href = "single.html?id=" + ret.id;
+                        }
                     })
 
 
@@ -636,7 +875,13 @@
                 }
             })
 
-            document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/kammuslinger-sm.jpg' alt='billede af kammuslinger'>";
+            if (window.innerWidth >= 401) {
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/medium/kammuslinger-md.jpg' alt='billede af kammuslinger'>";
+            } else {
+
+
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/kammuslinger-sm.jpg' alt='billede af kammuslinger'>";
+            }
 
             document.querySelector(".forretter").innerHTML = "<img src='billeder/knapper/knap_forretter_pil.svg' alt='knap, der indikerer visning af forretter'>";
             document.querySelector(".hovedretter").innerHTML = "<img src='billeder/knapper/knap_hovedretter.svg' alt='knap til visning af hovedretter'>";
@@ -677,6 +922,14 @@
             //indsæt kategori
             klon.querySelector("h2").textContent = "Hovedretter";
 
+            // giv kategorien en farve
+            document.querySelector(".data-dest_kategori").classList.remove("lysorange");
+            document.querySelector(".data-dest_kategori").classList.remove("dustyblue");
+            document.querySelector(".data-dest_kategori").classList.remove("orange");
+            document.querySelector(".data-dest_kategori").classList.remove("navy");
+
+            document.querySelector(".data-dest_kategori").classList.add("dustyblue");
+
             //placer klon i html
             dest_kategori.appendChild(klon);
 
@@ -690,7 +943,11 @@
                     klon.querySelector(".data-navn").innerHTML = "<li><span class='navy'>" + ret.navn + "</span></li>";
 
                     klon.querySelector(".data-navn").addEventListener("click", () => {
-                        window.location.href = "single.html?id=" + ret.id;
+                        if (window.innerWidth >= 401) {
+                            visModal(ret);
+                        } else {
+                            window.location.href = "single.html?id=" + ret.id;
+                        }
                     })
 
 
@@ -717,7 +974,13 @@
                 }
             })
 
-            document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/muslinger-sm.jpg' alt='billede af muslinger'>";
+
+            if (window.innerWidth >= 401) {
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/medium/muslinger-md.jpg' alt='billede af muslinger'>";
+            } else {
+
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/muslinger-sm.jpg' alt='billede af muslinger'>";
+            }
 
 
             document.querySelector(".forretter").innerHTML = "<img src='billeder/knapper/knap_forretter.svg' alt='knap, der indikerer visning af forretter'>";
@@ -760,6 +1023,14 @@
             //indsæt kategori
             klon.querySelector("h2").textContent = "Desserter";
 
+            // giv kategorien en farve
+            document.querySelector(".data-dest_kategori").classList.remove("lysorange");
+            document.querySelector(".data-dest_kategori").classList.remove("dustyblue");
+            document.querySelector(".data-dest_kategori").classList.remove("orange");
+            document.querySelector(".data-dest_kategori").classList.remove("navy");
+
+            document.querySelector(".data-dest_kategori").classList.add("lysorange");
+
             //placer klon i html
             dest_kategori.appendChild(klon);
 
@@ -773,7 +1044,11 @@
                     klon.querySelector(".data-navn").innerHTML = "<li><span class='navy'>" + ret.navn + "</span></li>";
 
                     klon.querySelector(".data-navn").addEventListener("click", () => {
-                        window.location.href = "single.html?id=" + ret.id;
+                        if (window.innerWidth >= 401) {
+                            visModal(ret);
+                        } else {
+                            window.location.href = "single.html?id=" + ret.id;
+                        }
                     })
 
 
@@ -800,7 +1075,13 @@
                 }
             })
 
-            document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/cremepatissiere-sm.jpg' alt='billede af dessert med creme patissiere'>";
+            if (window.innerWidth >= 401) {
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/medium/cremepatissiere-md.jpg' alt='billede af dessert med creme patissiere'>";
+            } else {
+
+
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/cremepatissiere-sm.jpg' alt='billede af dessert med creme patissiere'>";
+            }
 
 
             document.querySelector(".forretter").innerHTML = "<img src='billeder/knapper/knap_forretter.svg' alt='knap til visning af forretter'>";
@@ -842,6 +1123,17 @@
             //indsæt kategori
             klon.querySelector("h2").textContent = "Drikkevarer";
 
+            // fjern farver og giv kategorien en farve
+
+
+            document.querySelector(".data-dest_kategori").classList.remove("lysorange");
+            document.querySelector(".data-dest_kategori").classList.remove("dustyblue");
+            document.querySelector(".data-dest_kategori").classList.remove("orange");
+            document.querySelector(".data-dest_kategori").classList.remove("navy");
+
+            document.querySelector(".data-dest_kategori").classList.add("orange");
+
+
             //placer klon i html
             dest_kategori.appendChild(klon);
 
@@ -855,7 +1147,11 @@
                     klon.querySelector(".data-navn").innerHTML = "<li><span class='navy'>" + ret.navn + "</span></li>";
 
                     klon.querySelector(".data-navn").addEventListener("click", () => {
-                        window.location.href = "single.html?id=" + ret.id;
+                        if (window.innerWidth >= 401) {
+                            visModal(ret);
+                        } else {
+                            window.location.href = "single.html?id=" + ret.id;
+                        }
                     })
 
 
@@ -882,7 +1178,13 @@
                 }
             })
 
-            document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/mimosa-sm.jpg' alt='billede af mimosa cocktail'>";
+            if (window.innerWidth >= 401) {
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/medium/mimosa-md.jpg' alt='billede af mimosa cocktail'>";
+
+            } else {
+
+                document.querySelector(".mad_billede").innerHTML = "<img src='billeder/small/mimosa-sm.jpg' alt='billede af mimosa cocktail'>";
+            }
 
 
             document.querySelector(".forretter").innerHTML = "<img src='billeder/knapper/knap_forretter.svg' alt='knap til visning af forretter'>";
@@ -896,6 +1198,77 @@
 
             document.querySelector(".hovedretter").addEventListener("click", visHovedretter);
 
+        }
+
+        function visModal(retten) {
+
+            document.querySelector(".modal_knap").classList.remove("skjul_knap");
+
+            modal.classList.add("vis");
+            //modal.classList.add("kanKlikke");
+            console.log("klassetilføjet");
+
+
+            modal.querySelector(".modal-billede").src = "billeder/medium/" + retten.billede + "-md.jpg";
+            modal.querySelector(".modal-billede").alt = "foto af " + retten.navn;
+            modal.querySelector(".modal-navn").textContent = retten.navn;
+            modal.querySelector(".modal-beskrivelse").textContent = retten.beskrivelse;
+            modal.querySelector(".modal-pris").textContent = retten.pris + ",-";
+
+            modal.querySelector("button").addEventListener("click", skjulModal);
+
+            //            document.querySelector("#modal").addEventListener("click", skjulModal);
+
+        }
+
+        // javascript til menuen //
+
+        document.querySelector(".menuknap").addEventListener("click", menuVisning);
+
+        function menuVisning() {
+            console.log("der er klikket på menuen");
+            document.querySelector(".drop_down").classList.remove("display_none");
+
+
+            document.querySelector(".om").addEventListener("click", om);
+            document.querySelector(".mad").addEventListener("click", mad);
+            document.querySelector(".lukknap").addEventListener("click", lukMenu);
+        }
+
+        function lukMenu() {
+            console.log("luk menu");
+
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+
+        function om() {
+            console.log("der er klikket på om");
+
+            //
+            //    if (document.querySelector(".om_section").scrollIntoView == null) {
+            //        console.log("null");
+            //        window.location.href = "index.html";
+
+ window.location.href = "index.html";
+//document.querySelector(".om_section").scrollIntoView({
+//behavior: 'smooth'
+//});
+
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+
+        function mad() {
+            console.log("der er klikket på mad");
+
+            window.location.href = "mad.html";
+
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+
+
+        function skjulModal() {
+            console.log("skjulModal");
+            modal.classList.remove("vis");
         }
     </script>
 

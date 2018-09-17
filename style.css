@@ -30,7 +30,6 @@
  }
 
  .forside_logo {
-     grid-area: logo;
      grid-column-start: 2;
      grid-column-end: 12;
      grid-row-start: 3;
@@ -91,10 +90,10 @@
      background-color: var(--dustyblue);
      display: grid;
      width: 100vw;
-     height: 70vh;
+     height: 500px;
      grid-template-columns: 1fr 2fr 6fr 2fr 1fr;
 
-     grid-template-rows: 1fr 1fr 2fr 6fr 1fr 1fr 1fr;
+     grid-template-rows: 10% 10% 10% 30% 15%;
      grid-gap: 10px;
 
      position: absolute;
@@ -108,8 +107,8 @@
  .menu_tekst {
      grid-column-start: 3;
      grid-column-end: 4;
+     grid-row-start: 1;
      grid-row-start: 2;
-     grid-row-start: 3;
      justify-self: center;
      align-self: end;
      margin-bottom: 3vw;
@@ -119,8 +118,8 @@
  .wave {
      grid-column-start: 3;
      grid-column-end: 4;
+     grid-row-start: 1;
      grid-row-start: 2;
-     grid-row-start: 3;
      align-self: end;
  }
 
@@ -139,8 +138,8 @@
  .liste {
      grid-column-start: 2;
      grid-column-end: 5;
+     grid-row-start: 2;
      grid-row-start: 3;
-     grid-row-start: 4;
      align-self: start;
      line-height: 2;
      color: var(--navy);
@@ -149,7 +148,7 @@
  }
 
  .fed {
-     font-weight: 900;
+     font-weight: 500;
  }
 
  .lukknap {
@@ -210,7 +209,7 @@
  }
 
  .centreret {
-     text-align: center;
+     text-align: right;
      color: var(--lysorange);
  }
 
@@ -245,3 +244,110 @@
  }
 
  /*        footer slut*/
+
+ .skjul {
+     display: none;
+ }
+
+ @media only screen and (min-width: 401px) {
+
+     /* ipad */
+
+     .baggrund {
+         background-image: url(billeder/baggrunde/ipad.jpg);
+     }
+
+     .display_none {
+         /*            display: none;*/
+         transform: translateY(-800px);
+     }
+
+     .forside_logo {
+         grid-column-start: 2;
+         grid-column-end: 8;
+         grid-row-start: 5;
+         grid-row-end: 6;
+         align-self: end;
+     }
+
+     .om_section {
+         max-width: 800px;
+         margin: 15vw;
+     }
+
+     .drop_down {
+         width: 350px;
+         height: 450px;
+
+     }
+ }
+
+ @media only screen and (min-width: 500px) {
+     .footer_container {
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: 1fr;
+     }
+
+     .footer_indhold {
+         max-width: 800px;
+     }
+ }
+
+ @media only screen and (min-width: 1000px) {
+     .baggrund {
+         background-image: url(billeder/baggrunde/desktop.jpg);
+     }
+
+     .forside_logo {
+         grid-column-start: 2;
+         grid-column-end: 6;
+         grid-row-start: 5;
+         grid-row-end: 6;
+         align-self: end;
+     }
+
+     .drop_down {
+         display: none;
+     }
+
+     .menuknap {
+         display: none;
+     }
+
+     .menu_desktop_boks {
+         background-color: rgba(159, 178, 181, 0.75);
+         width: 100vw;
+         height: 100%;
+         grid-column-start: 1;
+         grid-column-end: 13;
+         grid-row-start: 2;
+         grid-row-end: 3;
+     }
+
+     .menu_desktop_knapper {
+         grid-column-start: 2;
+         grid-column-end: 12;
+         grid-row-start: 2;
+         grid-row-end: 3;
+         height: 100%;
+     }
+
+     .menu_desktop_flex {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+     }
+
+     .menu_desktop_flex p {
+         font-size: 1.2em;
+     }
+
+     .lysorange {
+         color: var(--lysorange);
+     }
+
+     .footer_indhold {
+         max-width: 1600px;
+     }
+
+ }

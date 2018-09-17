@@ -27,6 +27,17 @@
             </div>
         </div>
 
+        <div class="menu_desktop_boks skjul"></div>
+        <div class="menu_desktop_knapper skjul">
+            <div class="menu_desktop_flex">
+                <p id="om">Om <span class="fed">á la FRISK</span></p>
+                <p id="mad">Mad</p>
+                <p id="book">Book et bord</p>
+                <p id="kontakt">Kontakt</p>
+            </div>
+        </div>
+
+
         <div class="forside_logo"> <img src="billeder/logoer/logo_navy.svg" alt="logo"> </div>
         <div class="orange_box"></div>
         <div class="drop_down display_none">
@@ -36,7 +47,7 @@
             <div class="wave"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
             <div class="liste">
                 <ul>
-                    <li class="om">Om <span class="fed">á la FRISK</span></li>
+                    <li id="om" class="om">Om <span class="fed">á la FRISK</span> (forside)</li>
                     <li class="mad">Mad</li>
                     <li class="book">Book et bord</li>
                     <li class="kontakt">Kontakt</li>
@@ -82,6 +93,16 @@
 
     <!--    <script src="js.js"></script>-->
     <script>
+        document.querySelector("#om").classList.add("lysorange");
+        if (window.innerWidth >= 1000) {
+            document.querySelector(".menu_desktop_boks").classList.remove("skjul");
+            document.querySelector(".menu_desktop_knapper").classList.remove("skjul");
+
+            document.querySelector("#om").addEventListener("click", om);
+
+            document.querySelector("#mad").addEventListener("click", mad);
+
+        }
         document.querySelector(".menuknap").addEventListener("click", menuVisning);
 
         function menuVisning() {
@@ -90,7 +111,9 @@
 
 
             document.querySelector(".om").addEventListener("click", om);
+
             document.querySelector(".mad").addEventListener("click", mad);
+
             document.querySelector(".lukknap").addEventListener("click", lukMenu);
         }
 
@@ -125,6 +148,7 @@
         }
 
         // modal visning //
+
     </script>
 
 </body>

@@ -17,36 +17,86 @@ let kategoriFilter = "forretter";
 // når DOM'en er hentet udføres funktionen start
 document.addEventListener("DOMContentLoaded", start);
 
+// funktionen udføres når DOM-indholdet er hentet
+// kalder hentJson ()
+// lytter på, om der bliver klikket på menu
+// lytter på om der bliver klikket på logoet
+// lytter på om der er mouseover på filtreringsmenuen (desktop)
+// lytter på om der bliver klikket på filtreringsmenuen
+// hvis skærmen er større end 1000 skjuler den mobilmenuer og viser dekstop menuer
+//
 function start() {
     console.log("start");
+
+    // henter data fra json-fil
+    // ret-objekterne lægges i et menu-array
+    // kalder funktionen visRetter()
     async function hentJson() {
         console.log("json");
+        // laver en variabel, dataJson med data fra json.filen
         let dataJson = await fetch("json.json");
+        // lægger alle retterne i et array
         menu = await dataJson.json();
-
         console.log(menu);
+        // kalder funktionen visRetter
         visRetter();
     }
 
     // event listener, der lytter på, om der bliver trykket på burgermenuen
     document.querySelector(".menuknap").addEventListener("click", menuVisning);
 
+    // viser dropdownmenuen
+    // lytter på om der er mouseover og mouseout på menuknapperne
+    // lytter på om der bliver klikket på menupunkterne
+    // lytter på om der bliver klikket på luk knappen
     function menuVisning() {
         console.log("der er klikket på menuen");
+        // viser dropdown menu
         document.querySelector(".drop_down").classList.remove("display_none");
+        // lytter efter mouseover på knapperne i mobile menuen
+        document.querySelector(".om").addEventListener("mouseover", () => {
+            document.querySelector(".om span").classList.add("orange");
+        });
+
+        document.querySelector(".book").addEventListener("mouseover", () => {
+            document.querySelector(".book span").classList.add("orange");
+        });
+
+        document.querySelector(".kontakt").addEventListener("mouseover", () => {
+            document.querySelector(".kontakt span").classList.add("orange");
+        });
+        // lytter efter mouseout i mobile menuen
+        document.querySelector(".om").addEventListener("mouseout", () => {
+            document.querySelector(".om span").classList.remove("orange");
+        });
+
+        document.querySelector(".book").addEventListener("mouseout", () => {
+            document.querySelector(".book span").classList.remove("orange");
+        });
+
+        document.querySelector(".kontakt").addEventListener("mouseout", () => {
+            document.querySelector(".kontakt span").classList.remove("orange");
+        });
+        // lytter efter klik på knapper i mobile menuen
         document.querySelector(".om").addEventListener("click", () => {
             window.location.href = "index.html";
         });
         document.querySelector(".mad").addEventListener("click", () => {
             window.location.href = "mad.html";
         });
+        document.querySelector(".book").addEventListener("click", () => {
+            window.location.href = "book.html";
+        });
+        // lytter på klik på knap og kalder funktionen kontakt
+        document.querySelector(".kontakt").addEventListener("click", kontakt);
+        // lytter på klik på luk menu knap og kalder funktionen lukMenu
         document.querySelector(".lukknap").addEventListener("click", lukMenu);
-
     }
 
+    // skjuler dropdownvinduet
     function lukMenu() {
         console.log("luk menu");
-
+        // skjuler dropdownmenuen
         document.querySelector(".drop_down").classList.add("display_none");
     }
 
@@ -55,51 +105,54 @@ function start() {
         window.location.href = "index.html";
     })
 
-
-
     // event listener, som lytter på, om desktop filtreringsmenuen bliver "hovered", hvorefter visHoverFiltrering udføres
     document.querySelector(".hover_filtrering").addEventListener("mouseover", visHoverFiltrering);
 
+    // ændrer hover-filtreringsmenuens placering, så den kommer helt ind på skærmen
+    // rykker kategori og retternes navn en kolonne, så menuen ikke ligger ovenpå
+    // lytter på om der er mouseout på menuen
     function visHoverFiltrering() {
         console.log("hover filtrering");
+
+        // ændrer hovermenuens placering til synlig på skærmen
         document.querySelector(".hover_filtrering").classList.remove("hover_vis");
         document.querySelector(".hover_filtrering").classList.remove("hover_skjul");
         document.querySelector(".hover_filtrering").classList.add("hover_vis");
 
-
+        // ændrer kategoriens placering, så den ikke ligger under hovermenuen
         document.querySelector("#kategori").classList.remove("data-dest_kategori_placering");
         document.querySelector("#kategori").classList.remove("kategori_placering");
-
         document.querySelector("#kategori").classList.add("data-dest_kategori_placering");
 
+        // ændrer retternes placering, så de ikke ligger under hovermenuen
         document.querySelector("#navn").classList.remove("data-dest_navn_placering");
         document.querySelector("#navn").classList.remove("navn_placering");
-
         document.querySelector("#navn").classList.add("data-dest_navn_placering");
 
+        // lytter på mouseout og kalder funktionen skjulHoverFiltrering
         document.querySelector(".hover_filtrering").addEventListener("mouseout", skjulHoverFiltrering);
     }
 
+    // ændrer hover-filtreringsmenuens placering til delvist skjult
+    // rykker kategori og retternes navne tilbage på plads
     function skjulHoverFiltrering() {
         console.log("skjul hover filtrering");
+
+        // ændrer hovermenuens placering til delvist udenfor skærmen
         document.querySelector(".hover_filtrering").classList.remove("hover_skjul");
         document.querySelector(".hover_filtrering").classList.remove("hover_vis");
         document.querySelector(".hover_filtrering").classList.add("hover_skjul");
 
-
-
+        // rykker kategorien tilbage på plads
         document.querySelector("#kategori").classList.remove("kategori_placering");
         document.querySelector("#kategori").classList.add("kategori_placering");
-
         document.querySelector("#kategori").classList.remove("data-dest_kategori_placering");
 
+        // rykker retterne tilbage på plads
         document.querySelector("#navn").classList.remove("navn_placering");
         document.querySelector("#navn").classList.add("navn_placering");
-
         document.querySelector("#navn").classList.remove("data-dest_navn_placering");
-
     }
-
 
     // event listener, som lytter på, når der bliver trykket på en af knapperne i  filtreringsmenuen, herefter udføres funktionen filtrering
     document.querySelectorAll(".menu-item").forEach(knap => {
@@ -107,6 +160,7 @@ function start() {
     })
 
     // Viser desktop menuer - og skjuler mobile menuer - hvis skærmen er større end 1000
+    // lytter på om der bliver trykket på knapper i desktop menu
     if (window.innerWidth >= 1000) {
 
         // Skjuler mobile menuer
@@ -126,23 +180,77 @@ function start() {
         document.querySelector("#mad").addEventListener("click", () => {
             window.location.href = "mad.html";
         })
+        document.querySelector("#book").addEventListener("click", () => {
+            window.location.href = "book.html";
+        })
+        document.querySelector("#kontakt").addEventListener("click", kontakt);
+
+        // event listeners, der lytter på om knapperne i desktop menuen bliver hovered
+        document.querySelector("#om").addEventListener("mouseover", () => {
+            document.querySelector("#om").classList.add("orange");
+        });
+
+        document.querySelector("#book").addEventListener("mouseover", () => {
+            document.querySelector("#book").classList.add("orange");
+        });
+
+        document.querySelector("#kontakt").addEventListener("mouseover", () => {
+            document.querySelector("#kontakt").classList.add("orange");
+        });
+
+        document.querySelector("#om").addEventListener("mouseout", () => {
+            document.querySelector("#om").classList.remove("orange");
+        });
+
+        document.querySelector("#kontakt").addEventListener("mouseout", () => {
+            document.querySelector("#kontakt").classList.remove("orange");
+        });
+
+        document.querySelector("#book").addEventListener("mouseout", () => {
+            document.querySelector("#book").classList.remove("orange");
+        });
+
     }
 
-    // Giver det aktive menupunkt (desktop), mad en orange farve
-    document.querySelector("#mad").classList.add("lysorange");
+    // ved klik på kontakt i menuen, scrolles der til footeren
+    function kontakt() {
+        console.log("der er klikket på kontakt");
+        // får vinduet til at scrolle pænt ned til footeren
+        document.querySelector("footer").scrollIntoView({
+            behavior: 'smooth'
+        });
 
+        document.querySelector(".drop_down").classList.add("display_none");
+    }
+
+    // fjerner indholdet af kategori, navn og pris
+    // henter værdien af data-kategori og sætter værdien lig med kategoriFilteret
+    //kalder funktionen visRetter ()
     function filtrering() {
         console.log("filtrering");
+
         // "visker tavlen ren"
         dest_navn.innerHTML = "";
         dest_kategori.textContent = "";
         dest_pris.textContent = "";
 
+        // sætter kategorifilteret lig med kategorien for den ret, der er klikket på
         kategoriFilter = this.getAttribute("data-kategori");
         console.log(kategoriFilter);
+
+        // kalder funktionen visRetter
         visRetter();
     }
 
+    // angiver variabler for templates
+    //indsætter kategori
+    //indsætter den filtreringsmenu passende til kategorien
+    //skifter farve på kategori
+    //indsætter billede af den første ret alt efter kategori
+    //indsætter navne på retterne passende til kategori
+    //indsætter priser på retterne passende til kategori
+    // lytter på om der bliver klikket på et navn
+    // kalder visModal (), hvis skærm er mellem 401-1000
     function visRetter() {
         console.log("vis retter");
 
@@ -322,11 +430,13 @@ function start() {
         menu.forEach(ret => {
             if (ret.kategori == kategoriFilter) {
                 let klon = temp_navn.cloneNode(true).content;
-                klon.querySelector(".data-navn").innerHTML = "<li><span class='navy'>" + ret.navn + "</span></li>";
+                klon.querySelector(".data-navn").innerHTML = "<li><span class='navy'>" + ret.navn + " </span><span class='ekstratekst orange'>Se mere</span></li>";
+
                 console.log("navne indsat");
 
                 // event listener, der lytte på, om der bliver klikket på en af retternes navn
                 klon.querySelector(".data-navn").addEventListener("click", () => {
+
                     // hvis vinduet er større end 1000 indsættes rettens beskrivelse
                     if (window.innerWidth >= 1000) {
                         let klon = temp_beskrivelse.cloneNode(true).content;
@@ -335,6 +445,7 @@ function start() {
                         console.log("beskrivelser indsat");
                         dest_beskrivelse.appendChild(klon);
                     }
+
                     // hvis vinduet er større end 1000 indsættes rettens billede i medium størrelse
                     if (window.innerWidth >= 1000) {
                         let klon = temp_billede.cloneNode(true).content;
@@ -344,7 +455,6 @@ function start() {
                         console.log("billede indsat");
                         //placer klon i html
                         dest_billede.appendChild(klon);
-
                     }
                     // hvis vinduet er større end 401 men mindre end 1000, udføres funktionen visModal
                     else if (window.innerWidth >= 401) {
@@ -355,10 +465,11 @@ function start() {
                         window.location.href = "single.html?id=" + ret.id;
                     }
                 })
-
                 dest_navn.appendChild(klon);
+
             }
         })
+
         // Hvis der ikke er klikket indsættes forretternes priser, ellers indsættes priser matchende den kategori, der er klikket på
         // for hver ret indsættes pris
         menu.forEach(ret => {
@@ -373,27 +484,29 @@ function start() {
 
     }
 
+    // viser modalvindue
+    // indsætter billede, alt-tekst, rettens navn, beskrivelse og pris
+    // lytter på, om der bliver klikket på luk-knappen, hvorefter skjulModal() kaldes
     function visModal(retten) {
-
-        document.querySelector(".modal_knap").classList.remove("skjul");
-
         modal.classList.add("vis");
-        //modal.classList.add("kanKlikke");
-        console.log("klassetilføjet");
 
+        // indsætter data i modalvindue
         modal.querySelector(".modal-billede").src = "billeder/medium/" + retten.billede + "-md.jpg";
         modal.querySelector(".modal-billede").alt = "foto af " + retten.navn;
         modal.querySelector(".modal-navn").textContent = retten.navn;
         modal.querySelector(".modal-beskrivelse").textContent = retten.beskrivelse;
         modal.querySelector(".modal-pris").textContent = retten.pris + ",-";
-        modal.querySelector("button").addEventListener("click", skjulModal);
 
+        // lytter på klik på luk knap og kalder funktionen skjulModal
+        modal.querySelector("button").addEventListener("click", skjulModal);
     }
 
+    // skjuler modalvinduet igen
     function skjulModal() {
         console.log("skjulModal");
         modal.classList.remove("vis");
     }
+
     // kalder funktionen hentJson, som indlæser data fra json-filen
     hentJson();
 }

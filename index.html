@@ -47,10 +47,10 @@
             <div class="wave"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
             <div class="liste">
                 <ul>
-                    <li id="om" class="om">Om <span class="fed">á la FRISK</span> (forside)</li>
-                    <li class="mad">Mad</li>
-                    <li class="book">Book et bord</li>
-                    <li class="kontakt">Kontakt</li>
+                    <li class="om"><span>Om <span class="fed">á la FRISK</span></span></li>
+                    <li class="mad"><span>Mad</span></li>
+                    <li class="book"><span>Book et bord</span></li>
+                    <li class="kontakt"><span>Kontakt</span></li>
                 </ul>
             </div>
             <div class="lukknap">
@@ -77,11 +77,20 @@
     <footer>
         <div class="footer_indhold">
             <div class="footer_container">
-                <div class="footer_item">
+                <h2>KONTAKT</h2>
+                <div class="footer_item adresse">
                     <h4>ADRESSE</h4>
                     <p>Kultorvet 197 · 1234 København K</p>
                 </div>
-                <div class="footer_item">
+                <div class="footer_item telefon">
+                    <h4>TELEFON</h4>
+                    <p>+45 12 56 34 78</p>
+                </div>
+                <div class="footer_item email">
+                    <h4>EMAIL</h4>
+                    <p>kontakt@alafrisk.dk</p>
+                </div>
+                <div class="footer_item tider">
                     <h4>ÅBNINGSTIDER</h4>
                     <p>Mandag-fredag 10:30 - 22:00<br>Lørdag 12:00 - 23:00</p>
                 </div>
@@ -93,7 +102,7 @@
 
     <!--    <script src="js.js"></script>-->
     <script>
-        document.querySelector("#om").classList.add("lysorange");
+        //       document.querySelector("#om").classList.add("lysorange");
         if (window.innerWidth >= 1000) {
             document.querySelector(".menu_desktop_boks").classList.remove("skjul");
             document.querySelector(".menu_desktop_knapper").classList.remove("skjul");
@@ -102,6 +111,38 @@
 
             document.querySelector("#mad").addEventListener("click", mad);
 
+            document.querySelector("#kontakt").addEventListener("click", kontakt);
+
+            document.querySelector("#book").addEventListener("click", book);
+
+            document.querySelector("#om").addEventListener("mouseover", () => {
+                document.querySelector("#om").classList.add("orange");
+            });
+
+            document.querySelector("#mad").addEventListener("mouseover", () => {
+                document.querySelector("#mad").classList.add("orange");
+            });
+
+            document.querySelector("#kontakt").addEventListener("mouseover", () => {
+                document.querySelector("#kontakt").classList.add("orange");
+            });
+
+            document.querySelector("#book").addEventListener("mouseover", () => {
+                document.querySelector("#book").classList.add("orange");
+            });
+
+            document.querySelector("#om").addEventListener("mouseout", () => {
+                document.querySelector("#om").classList.remove("orange");
+            });
+
+            document.querySelector("#kontakt").addEventListener("mouseout", () => {
+                document.querySelector("#kontakt").classList.remove("orange");
+            });
+
+            document.querySelector("#mad").addEventListener("mouseout", () => {
+                document.querySelector("#mad").classList.remove("orange");
+            });
+
         }
         document.querySelector(".menuknap").addEventListener("click", menuVisning);
 
@@ -109,10 +150,46 @@
             console.log("der er klikket på menuen");
             document.querySelector(".drop_down").classList.remove("display_none");
 
+            document.querySelector(".om").addEventListener("mouseover", () => {
+                document.querySelector(".om span").classList.add("orange");
+            });
+
+            document.querySelector(".mad").addEventListener("mouseover", () => {
+                document.querySelector(".mad span").classList.add("orange");
+            });
+
+            document.querySelector(".book").addEventListener("mouseover", () => {
+                document.querySelector(".book span").classList.add("orange");
+            });
+
+            document.querySelector(".kontakt").addEventListener("mouseover", () => {
+                document.querySelector(".kontakt span").classList.add("orange");
+            });
+
+            document.querySelector(".om").addEventListener("mouseout", () => {
+                document.querySelector(".om span").classList.remove("orange");
+            });
+
+            document.querySelector(".book").addEventListener("mouseout", () => {
+                document.querySelector(".book span").classList.remove("orange");
+            });
+
+            document.querySelector(".kontakt").addEventListener("mouseout", () => {
+                document.querySelector(".kontakt span").classList.remove("orange");
+            });
+
+            document.querySelector(".mad").addEventListener("mouseout", () => {
+                document.querySelector(".mad span").classList.remove("orange");
+            });
 
             document.querySelector(".om").addEventListener("click", om);
 
             document.querySelector(".mad").addEventListener("click", mad);
+
+            document.querySelector(".kontakt").addEventListener("click", kontakt);
+
+            document.querySelector(".book").addEventListener("click", book);
+
 
             document.querySelector(".lukknap").addEventListener("click", lukMenu);
         }
@@ -139,6 +216,17 @@
             document.querySelector(".drop_down").classList.add("display_none");
         }
 
+        function kontakt() {
+            console.log("der er klikket på kontakt");
+
+            document.querySelector("footer").scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            document.querySelector(".drop_down").classList.add("display_none");
+
+        }
+
         function mad() {
             console.log("der er klikket på mad");
 
@@ -147,7 +235,16 @@
             document.querySelector(".drop_down").classList.add("display_none");
         }
 
+        function book() {
+            console.log("der er klikket på book");
+
+            window.location.href = "book.html";
+
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+
         // modal visning //
+
     </script>
 
 </body>

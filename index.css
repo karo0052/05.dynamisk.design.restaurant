@@ -9,6 +9,11 @@
      --frede: 'Fredericka the Great', cursive;
  }
 
+ .orange {
+     color: var(--orange);
+ }
+
+
  body {
      margin: 0;
      padding: 0;
@@ -225,7 +230,7 @@
  .footer_container {
      display: grid;
      grid-template-columns: 1fr;
-     grid-template-rows: 1fr 1fr;
+     grid-template-rows: auto auto auto auto auto;
  }
 
  footer .footer_item {
@@ -241,6 +246,13 @@
 
  footer p {
      color: var(--hvid);
+     font-weight: 100;
+ }
+
+ footer h2 {
+     font-family: var(--frede);
+     font-size: 2.5em;
+     padding: 0 10vw;
  }
 
  /*        footer slut*/
@@ -285,12 +297,56 @@
  @media only screen and (min-width: 500px) {
      .footer_container {
          grid-template-columns: 1fr 1fr;
-         grid-template-rows: 1fr;
+         grid-template-rows: auto auto auto;
      }
 
      .footer_indhold {
          max-width: 800px;
      }
+
+     .footer_indhold h2 {
+         grid-column-start: 1;
+         grid-column-end: 3;
+         grid-row-start: 1;
+         grid-row-end: 2;
+     }
+
+     .telefon {
+         grid-column-start: 1;
+         grid-column-end: 2;
+         grid-row-start: 2;
+         grid-row-end: 3;
+     }
+
+     .adresse {
+         grid-column-start: 1;
+         grid-column-end: 2;
+         grid-row-start: 3;
+         grid-row-end: 4;
+     }
+
+     .email {
+         grid-column-start: 2;
+         grid-column-end: 3;
+         grid-row-start: 2;
+         grid-row-end: 3;
+     }
+
+     .tider {
+         grid-column-start: 2;
+         grid-column-end: 3;
+         grid-row-start: 3;
+         grid-row-end: 4;
+     }
+
+     .footer_indhold p {
+         padding-bottom: 30px;
+     }
+
+     .footer_indhold h4 {
+         margin-bottom: 10px;
+     }
+
  }
 
  @media only screen and (min-width: 1000px) {

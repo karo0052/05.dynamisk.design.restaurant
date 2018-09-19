@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="da">
 
 <head>
     <meta charset="utf-8">
@@ -14,33 +14,53 @@
 </head>
 
 <body>
+
+    <!--   filtreringsmenu, som er skjult, og først bliver synligt, når skærmen er større end 1000. Fungerer som en menu, der ligger delvist uden for skærmen, men kommer frem, når man hover på den del af menuen, der er synlig-->
     <div class="hover_filtrering skjul hover_skjul">
+
+        <!--her indsættes billedet som en baggrund via css, der er knap til visning af forretter. Som udgangspunkt er forretter markeret som aktiv, men billedet udskiftes til deaktiv ved klik på de andre kategorier vha. js-->
         <div class="desktop_forretter menu-item" data-kategori="forretter"></div>
+
+        <!--her indsættes billedet som en baggrund via css, der er knap til visning af hovedretter. Som udgangspunkt er hovedretter markeret som deaktiv, men billedet udskiftes til aktiv ved klik på elementet vha. js-->
         <div class="desktop_hovedretter menu-item" data-kategori="hovedretter"></div>
+
+        <!--her indsættes billedet som en baggrund via css, der er knap til visning af desserter. Som udgangspunkt er desserter markeret som deaktiv, men billedet udskiftes til aktiv ved klik på elementet vha. js-->
         <div class="desktop_desserter menu-item" data-kategori="desserter"></div>
+
+        <!--her indsættes billedet som en baggrund via css, der er knap til visning af drikkevarer. Som udgangspunkt er drikkevarer markeret som deaktiv, men billedet udskiftes til aktiv ved klik på elementet vha. js-->
         <div class="desktop_drikkevarer menu-item" data-kategori="drikkevarer"></div>
     </div>
-    <section id="modal">
-        <div id="modal-content">
 
+    <!--    modalvindue, der er skjult. Vises ved klik på ret, når skærmen er mellem 401 og 1000-->
+    <section id="modal">
+
+        <!--       container for det inhold, som sættes ind, når modalvinduet er i brug. Modalvinduet har en solid hvid, på en dustyblue baggrund-->
+        <div id="modal-content">
             <br>
+            <!--            tomt img-tag, hvor billedet af den valgte ret vises-->
             <img class="modal-billede" src="" alt="">
+            <!--            her indsættes rettens navn-->
             <h2 class="modal-navn"></h2>
+            <!--            her indsættes rettens beskrivelse-->
             <p class="modal-beskrivelse"></p>
+            <!--            her indsættes rettens pris-->
             <p class="modal-pris"></p>
-            <button class=" modal_knap skjul">Luk</button>
+            <!--            knap til at lukke modalvinduet igen-->
+            <button class=" modal_knap">Luk</button>
         </div>
-        <!--
-<section id="klikker">
-</section>
--->
 
     </section>
 
+    <!--dest_mad er et grid, der indeholder alt fra mobile menu/desktop menu, mobile filtrering, samt de containere, som data fra json-filen bliver indsat i (kategori, navn, pris, beskrivelse afhængig af skærmstørrelsen)-->
     <div class="dest_mad">
 
+        <!--       her indsættes det billede (tekstur) som ligger i baggrunden øverst på siden. Billedet indsættes som baggrund via css -->
         <div class="baggrund_mad"></div>
+
+        <!--        dustyblue box med en opacity, som ligger henover baggrundsbilledet-->
         <div class="baggrund_lag_mad"></div>
+
+        <!--        indholder elementerne til knappen til burgermenuen-->
         <div class="menuknap">
             <div class="menubutton">
                 <div class="bar bar1"></div>
@@ -49,26 +69,35 @@
             </div>
         </div>
 
+        <!-- elementerne til menuen, der vises når skærmen er større end 1000-->
         <div class="menu_desktop_boks skjul"></div>
         <div class="menu_desktop_knapper skjul">
             <div class="menu_desktop_flex">
-                <p id="om">Om <span class="fed">á la FRISK</span></p>
-                <p id="mad">Mad</p>
+                <p id="om">Forside</p>
+                <p id="mad"><span class="orange">Mad</span></p>
                 <p id="book">Book et bord</p>
                 <p id="kontakt">Kontakt</p>
             </div>
         </div>
 
 
-        <div class="mad_logo"> <img src="billeder/logoer/logo_hvid.svg" alt="logo"> </div>
+        <!--       indeholder logoet-->
+        <div class="mad_logo">
+            <img src="billeder/logoer/logo_hvid.svg" alt="logo">
+        </div>
 
+        <!--her vises som udgangspunkt et billede af første forret. Ved klik i filtrerings-menuen udskiftes billedet til første ret indenfor den valgte kategori. Når skærmen er større end 1000 vises billedet passende til den ret, der bliver klikket på-->
         <div class="mad_billede">
 
         </div>
+
+        <!--      overskriften mad + den bølgede linje, der er lagt ind som billede-->
         <div class="h1_mad">
             <h1>MAD</h1>
         </div>
         <div class="wave_mad"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
+
+        <!--indeholder div'erne hvori billederne til mobile filtreringsmenu indsættes-->
         <div class="ikoner">
             <div class="ikoner_container">
                 <div class="forretter menu-item" data-kategori="forretter"> </div>
@@ -80,6 +109,7 @@
             </div>
         </div>
 
+        <!--indeholder alt, der hører til den dropdown menu, som fremkommer ved klik på "burgeren"-->
         <div class="drop_down display_none">
             <div class="menu_tekst">
                 <h1>MENU</h1>
@@ -87,10 +117,10 @@
             <div class="wave"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
             <div class="liste">
                 <ul>
-                    <li class="om">Om <span class="fed">á la FRISK</span> (forside)</li>
-                    <li class="mad">Mad</li>
-                    <li class="book">Book et bord</li>
-                    <li class="kontakt">Kontakt</li>
+                    <li class="om hover"><span>Forside</span></li>
+                    <li class="mad hover"><span class="orange">Mad</span></li>
+                    <li class="book hover"><span>Book et bord</span></li>
+                    <li class="kontakt hover"><span>Kontakt</span></li>
                 </ul>
             </div>
             <div class="lukknap">
@@ -100,16 +130,37 @@
                 </div>
             </div>
         </div>
-        <!--        Her skal menuen sættes ind fra JSON-->
 
+        <!--        Her skal menuen sættes ind fra JSON-->
         <div id="kategori" class="data-dest_kategori kategori_placering"></div>
+        <div id="navn" class="data-dest_navn navn_placering"></div>
+        <div id="pris" class="data-dest_pris"></div>
+        <div class="data-dest_beskrivelse"></div>
+
+    </div>
+
+    <!--    indeholder templates til visning af data om den enkelte ret-->
+    <div class="templates">
+
+        <!--template til indsættelse af kategori-->
         <template class="data-template_kategori">
             <article>
                 <!--                kategori -->
                 <h2></h2>
             </article>
         </template>
-        <div id="navn" class="data-dest_navn navn_placering"></div>
+
+        <!--        template til indsættelse af rettens billede-->
+        <template class="data-template_billede">
+            <article>
+
+                <!--                billede-->
+                <p class="data-billede"></p>
+
+            </article>
+        </template>
+
+        <!--        template til indsættelse af rettens navn-->
         <template class="data-template_navn">
             <article>
 
@@ -119,46 +170,50 @@
             </article>
         </template>
 
-        <div id="pris" class="data-dest_pris"></div>
+        <!--        template til indsættelse af rettens pris-->
         <template class="data-template_pris">
             <article>
 
-                <!--                navn-->
+                <!--                pris-->
                 <p class="data-pris"></p>
 
             </article>
         </template>
-        <div class="data-dest_beskrivelse"></div>
+
+        <!--        template til indsættelse af rettens beskrivelse-->
         <template class="data-template_beskrivelse">
             <article>
 
-                <!--                navn-->
+                <!--                beskrivelse-->
                 <p class="data-beskrivelse"></p>
 
             </article>
         </template>
-        <template class="data-template_billede">
-            <article>
-
-                <!--                navn-->
-                <p class="data-billede"></p>
-
-            </article>
-        </template>
-
 
     </div>
+    <!--    gennemsigtig boks der bruges til at skabe den nødvendige afstand ned til footeren-->
     <div class="transparent_box"></div>
 
+    <!--footer med adresse og åbningstider for restauranten-->
 
     <footer>
+        <!--indeholder footerens indhold-->
         <div class="footer_indhold">
             <div class="footer_container">
-                <div class="footer_item">
+                <h2>KONTAKT</h2>
+                <div class="footer_item adresse">
                     <h4>ADRESSE</h4>
                     <p>Kultorvet 197 · 1234 København K</p>
                 </div>
-                <div class="footer_item">
+                <div class="footer_item telefon">
+                    <h4>TELEFON</h4>
+                    <p>+45 12 56 34 78</p>
+                </div>
+                <div class="footer_item email">
+                    <h4>EMAIL</h4>
+                    <p>kontakt@alafrisk.dk</p>
+                </div>
+                <div class="footer_item tider">
                     <h4>ÅBNINGSTIDER</h4>
                     <p>Mandag-fredag 10:30 - 22:00<br>Lørdag 12:00 - 23:00</p>
                 </div>
@@ -169,5 +224,6 @@
     <script src="js.js"></script>
 
 </body>
+
 
 </html>

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>á la FRISK - Booking</title>
+    <link rel="stylesheet" href="">
+    <style>
+        /*--------------------- OVERORDNET ----------------------*/
+        :root {
+            --navy: #052f4d;
+            --dustyblue: #9fb2b5;
+            --lysorange: #ed9045;
+            --orange: #dc5a01;
+            --hvid: #ffffff;
+
+            --roboto: 'Roboto', sans-serif;
+            --frede: 'Fredericka the Great', cursive;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--roboto);
+            color: var(--navy);
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            color: var(--navy);
+            font-family: var(--roboto);
+            font-weight: 300;
+
+        }
+
+        .fed {
+            font-weight: 500;
+        }
+
+        .stortekst {
+            font-size: 1.5em;
+        }
+
+        .skjul {
+            display: none;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        /*FARVER*/
+        .navy {
+            color: var(--navy);
+        }
+
+        .dustyblue {
+            color: var(--dustyblue);
+        }
+
+        .lysorange {
+            color: var(--lysorange);
+        }
+
+        .orange {
+            color: var(--orange);
+        }
+
+        /*FARVER SLUT*/
+
+        /*--------------------- MOBILE ----------------------*/
+        /*GRID*/
+        .dest_book {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 50px 50px 300px 100px 150px auto;
+            grid-gap: 0px;
+        }
+
+        /*GRID SLUT*/
+
+        /*BAGGRUND*/
+        .baggrund_lag_book {
+            background-color: rgba(159, 178, 181, 0.75);
+            width: 100vw;
+            height: 100%;
+            grid-column-start: 1;
+            grid-column-end: 13;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        .baggrund_book {
+            background-image: url(billeder/baggrunde/tekstur_mobile.jpg);
+            background-size: 100%;
+            height: 100%;
+            grid-column-start: 1;
+            grid-column-end: 13;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        /*BAGGRUND SLUT*/
+        /*LOGO*/
+        .book_logo {
+            grid-column-start: 2;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            align-self: center;
+        }
+
+        .book_logo img {
+            margin-top: 10px;
+        }
+
+        /*LOGO SLUT*/
+        /*MENU*/
+        .menuknap {
+            width: 100%;
+            height: 50%;
+            grid-column-start: 11;
+            grid-column-end: 12;
+            align-self: center;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        .menubutton {
+            width: 2em;
+            height: 2em;
+
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+
+        .bar {
+            width: 2em;
+            height: 0.2em;
+            background-color: var(--lysorange);
+        }
+
+        .drop_down {
+            background-color: var(--dustyblue);
+            display: grid;
+            width: 100vw;
+            height: 500px;
+            grid-template-columns: 1fr 2fr 6fr 2fr 1fr;
+
+            grid-template-rows: 10% 10% 10% 30% 15%;
+            grid-gap: 10px;
+
+            position: absolute;
+            transform: translateY(1);
+            transform-origin: top;
+            transition: transform .5s;
+            right: 0;
+
+        }
+
+        .menu_tekst {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-start: 2;
+            justify-self: center;
+            align-self: end;
+            margin-bottom: 3vw;
+
+        }
+
+        .wave {
+            grid-column-start: 4;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-start: 2;
+            align-self: end;
+        }
+
+        .drop_down h1 {
+            font-family: var(--frede);
+            color: var(--hvid);
+            font-size: 2.6em;
+            margin: 0;
+
+        }
+
+        .drop_down li {
+            font-family: var(--roboto);
+        }
+
+        .liste {
+            grid-column-start: 2;
+            grid-column-end: 5;
+            grid-row-start: 2;
+            grid-row-start: 3;
+            align-self: start;
+            line-height: 2;
+            color: var(--navy);
+            font-family: var(--roboto);
+            font-size: 1.5em;
+        }
+
+        .lukknap {
+            width: 30%;
+            height: 100%;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 6;
+            grid-row-end: 7;
+            justify-self: center;
+        }
+
+        .closebutton {
+            width: 4em;
+            height: 4em;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .streg1 {
+            transform: rotate(-45deg) translate(-12px, 20px);
+
+        }
+
+        .streg2 {
+            transform: rotate(225deg) translate(-12px, -20px);
+        }
+
+        .display_none {
+            transform: translateY(-500px);
+        }
+
+        /*MENU SLUT*/
+
+        /*BILLEDE*/
+        .book_billede {
+            grid-column-start: 1;
+            grid-column-end: 13;
+            grid-row-start: 3;
+            grid-row-end: 4;
+
+        }
+
+        .book_billede img {
+            max-width: 100vw;
+        }
+
+        /*BILLEDE SLUT*/
+        /*OVERSKRIFT MAD*/
+        .h1_book {
+            grid-column-start: 2;
+            grid-column-end: 11;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            justify-self: center;
+            align-self: center;
+            padding: 2vh 0;
+
+        }
+
+        .h1_book h1 {
+            color: var(--navy);
+            font-size: 3em;
+            font-family: var(--frede);
+        }
+
+        .wave_book {
+            grid-column-start: 2;
+            grid-column-end: 11;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            align-self: end;
+        }
+
+        /*TEKST*/
+        .book_tekst {
+            grid-column-start: 2;
+            grid-column-end: 11;
+            grid-row-start: 5;
+            grid-row-end: 7;
+        }
+
+        .book_tekst {
+            padding-top: 50px;
+        }
+
+        .kontaktOs {
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        /*TEKST SLUT*/
+        /*FYLD*/
+        .transparent_box {
+            width: 100vw;
+            height: 600px;
+        }
+
+        /*FYLD SLUT*/
+
+        /*FOOTER*/
+        footer {
+            width: 100vw;
+            background-color: var(--navy);
+            padding: 5vh 0;
+        }
+
+        .footer_container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto auto;
+        }
+
+        footer .footer_item {
+
+            padding: 0 10vw;
+        }
+
+        .footer_indhold {
+            max-width: 400px;
+            margin: 0 auto;
+            color: var(--hvid);
+        }
+
+        footer p {
+            color: var(--hvid);
+            font-weight: 100;
+        }
+
+        footer h2 {
+            font-family: var(--frede);
+            font-size: 2.5em;
+            padding: 0 10vw;
+        }
+
+        /*FOOTER SLUT*/
+        /*--------------------- MOBILE SLUT --------------------*/
+        /*---------------- IPAD (STØRRE END 401)----------------*/
+        @media only screen and (min-width: 401px) {
+
+            /*GRID*/
+            .dest_book {
+                grid-template-rows: 30px 120px 100px auto 23% auto;
+            }
+
+            /*GRID SLUT*/
+            /*BAGGRUND*/
+            .baggrund_book {
+                background-image: url(billeder/baggrunde/tekstur_ipad.jpg);
+            }
+
+            /*BAGGRUND SLUT*/
+
+            /*MENU*/
+            .display_none {
+                transform: translateY(-800px);
+            }
+
+            .drop_down {
+                width: 350px;
+                height: 450px;
+
+            }
+
+            /*MENU SLUT*/
+
+            /*LOGO*/
+            .book_logo img {
+                max-height: 65%;
+            }
+
+            /*LOGO SLUT*/
+            /*BILLEDE*/
+            .book_billede img {
+                max-width: 100%;
+            }
+
+            .book_billede {
+                justify-self: center;
+
+                grid-row-start: 4;
+                grid-row-end: 5;
+                margin-top: 20px;
+                grid-column-start: 2;
+                grid-column-end: 12;
+
+            }
+
+            /*BILLEDE SLUT*/
+
+            /*OVERSKRIFT BOOK*/
+            .h1_book {
+                grid-column-start: 5;
+                grid-column-end: 9;
+                grid-row-start: 3;
+                grid-row-end: 4;
+                padding-top: 30px;
+
+            }
+
+            .wave_book {
+                grid-column-start: 5;
+                grid-column-end: 9;
+                grid-row-start: 3;
+                grid-row-end: 4;
+                padding-top: 30px;
+            }
+
+            /*OVERSKRIFT BOOK SLUT*/
+
+        }
+
+        /*---------------- IPAD (STØRRE END 500)----------------*/
+        @media only screen and (min-width: 500px) {
+
+            /*FYLD*/
+            .transparent_box {
+                height: 650px;
+            }
+
+            /*FYLD SLUT*/
+            /*FOOTER*/
+            .footer_container {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .footer_indhold {
+                max-width: 800px;
+            }
+
+            .footer_indhold h2 {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+
+            .telefon {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+            .adresse {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+
+            .email {
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+            .tider {
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+
+            .footer_indhold p {
+                padding-bottom: 30px;
+            }
+
+            .footer_indhold h4 {
+                margin-bottom: 10px;
+            }
+
+            /*FOOTER SLUT*/
+
+        }
+
+        /*---------------- IPAD (STØRRE END 630)----------------*/
+        @media only screen and (min-width: 630px) {
+
+            /*BOOK TEKST*/
+            .book_tekst {
+                grid-column-start: 2;
+                grid-column-end: 12;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 1fr;
+                grid-gap: 70px;
+            }
+
+            .book_tekst1 {
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+
+            .book_tekst2 h2 {
+                margin-top: 0;
+            }
+
+            .book_tekst2 {
+                grid-column-start: 2;
+                grid-column-end: 3;
+            }
+
+            /*BOOK TEKST SLUT*/
+        }
+
+        /*---------------- IPAD (STØRRE END 820)----------------*/
+        @media only screen and (min-width: 820px) {
+
+            /*BOOK TEKST*/
+            .book_tekst {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+
+            /*BOOK TEKST SLUT*/
+
+            /*FYLD*/
+            .transparent_box {
+                height: 650px;
+            }
+
+            /*FYLD SLUT*/
+        }
+
+        /*-------------- DESKTOP (STØRRE END 1000)--------------*/
+        @media only screen and (min-width: 1000px) {
+
+            /*GRID*/
+            .dest_book {
+                grid-template-rows: 30px 120px 50px 100px 600px;
+            }
+
+            /*GRID SLUT*/
+
+            /*LOGO*/
+            .book_logo {
+                grid-column-start: 2;
+                grid-column-end: 4;
+            }
+
+            /*LOGO SLUT*/
+            /*MENU*/
+            .drop_down {
+                display: none;
+            }
+
+            .menuknap {
+                display: none;
+            }
+
+            .menu_desktop_boks {
+                background-color: rgba(159, 178, 181, 0.75);
+                width: 100vw;
+                height: 100%;
+                grid-column-start: 1;
+                grid-column-end: 13;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+
+            .menu_desktop_knapper {
+                grid-column-start: 2;
+                grid-column-end: 12;
+                grid-row-start: 3;
+                grid-row-end: 4;
+                height: auto;
+                align-self: center;
+            }
+
+            .menu_desktop_flex {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .menu_desktop_flex p {
+                font-size: 1.2em;
+            }
+
+            /*MENU SLUT*/
+            /*OVERSKRIFT BOOK*/
+            .h1_book {
+                grid-column-start: 5;
+                grid-column-end: 9;
+                grid-row-start: 4;
+                grid-row-end: 5;
+                padding-top: 30px;
+
+            }
+
+            .wave_book {
+                grid-column-start: 5;
+                grid-column-end: 9;
+                grid-row-start: 4;
+                grid-row-end: 5;
+                padding-top: 30px;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            /*OVERSKRIFT BOOK SLUT*/
+            /*BILLEDE*/
+            .book_billede img {
+                max-width: 100%;
+            }
+
+            .book_billede {
+                justify-self: center;
+
+                grid-row-start: 5;
+                grid-row-end: 6;
+                margin-top: 20px;
+                grid-column-start: 6;
+                grid-column-end: 12;
+
+            }
+
+            /*BILLEDE SLUT*/
+
+            /*BOOK TEKST*/
+            .book_tekst {
+                display: block;
+                grid-column-start: 2;
+                grid-column-end: 5;
+                grid-row-start: 5;
+                grid-row-end: 7;
+                padding-top: 20px;
+            }
+
+            /*BOOK TEKST SLUT*/
+
+            /*FYLD*/
+            .transparent_box {
+                height: 350px;
+            }
+
+            /*FYLD SLUT*/
+            /*FOOTER*/
+            .footer_indhold {
+                max-width: 1600px;
+            }
+
+            /*FOOTER SLUT*/
+        }
+    </style>
+</head>
+
+<body>
+    <!--dest_mad er et grid, der indeholder alt fra mobile menu/desktop menu, mobile filtrering, samt de containere, som data fra json-filen bliver indsat i (kategori, navn, pris, beskrivelse afhængig af skærmstørrelsen)-->
+    <div class="dest_book">
+
+        <!--       her indsættes det billede (tekstur) som ligger i baggrunden øverst på siden. Billedet indsættes som baggrund via css -->
+        <div class="baggrund_book"></div>
+
+        <!--        dustyblue box med en opacity, som ligger henover baggrundsbilledet-->
+        <div class="baggrund_lag_book"></div>
+
+        <!--        indholder elementerne til knappen til burgermenuen-->
+        <div class="menuknap">
+            <div class="menubutton">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+        </div>
+
+        <!-- elementerne til menuen, der vises når skærmen er større end 1000-->
+        <div class="menu_desktop_boks skjul"></div>
+        <div class="menu_desktop_knapper skjul">
+            <div class="menu_desktop_flex">
+                <p id="om">Forside</p>
+                <p id="mad">Mad</p>
+                <p id="book"><span class="orange">Book et bord</span></p>
+                <p id="kontakt">Kontakt</p>
+            </div>
+        </div>
+
+
+        <!--       indeholder logoet-->
+        <div class="book_logo">
+            <img src="billeder/logoer/logo_hvid.svg" alt="logo">
+        </div>
+        <div class="drop_down display_none">
+            <div class="menu_tekst">
+                <h1>MENU</h1>
+            </div>
+            <div class="wave"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
+            <div class="liste">
+                <ul>
+                    <li class="om"><span>Forside</span></li>
+                    <li class="mad"><span>Mad</span></li>
+                    <li class="book"><span class="orange">Book et bord</span></li>
+                    <li class="kontakt"><span>Kontakt</span></li>
+                </ul>
+            </div>
+            <div class="lukknap">
+                <div class="closebutton">
+                    <div class="bar streg1"></div>
+                    <div class="bar streg2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="book_billede">
+            <img src="billeder/restaurant.jpg" alt="billede af restaurantfacade">
+        </div>
+
+
+        <div class="h1_book">
+            <h1>BOOKING</h1>
+        </div>
+        <div class="wave_book"><img src="billeder/wave_menu_mobil.svg" alt="bølget linje"></div>
+
+        <div class="book_tekst">
+            <div class="book_tekst1">
+                <p><span class="fed stortekst">á la FRISK</span> er en restaurant med plads til
+                    120 spisende gæster. Det er muligt at booke borde til både større og mindre arrangementer, og det er desuden muligt at booke hele restauranten. Booker man hele restauranten, er der lukket for andre gæster.
+                    <br><br></p>
+            </div>
+            <div class="book_tekst2">
+                <h2>BOOK ARRANGEMENT</h2>
+                <p>Hvis du vil booke restauranten til et arrangement, bedes du kontakte os på<br>
+                    <span class="kontaktOs orange"> tlf. +45 12 56 34 78</span>
+                    <br><br></p>
+                <h2>BOOK ET BORD</h2>
+                <p>
+                    Hvis du vil booke et bord, kan du gøre det via linket her<br> <a href="" alt="" class="kontaktOs orange">alafrisk.booking.dk</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="transparent_box"></div>
+    <footer>
+        <!--indeholder footerens indhold-->
+        <div class="footer_indhold">
+            <div class="footer_container">
+                <h2>KONTAKT</h2>
+                <div class="footer_item adresse">
+                    <h4>ADRESSE</h4>
+                    <p>Kultorvet 197 · 1234 København K</p>
+                </div>
+                <div class="footer_item telefon">
+                    <h4>TELEFON</h4>
+                    <p>+45 12 56 34 78</p>
+                </div>
+                <div class="footer_item email">
+                    <h4>EMAIL</h4>
+                    <p>kontakt@alafrisk.dk</p>
+                </div>
+                <div class="footer_item tider">
+                    <h4>ÅBNINGSTIDER</h4>
+                    <p>Mandag-fredag 10:30 - 22:00<br>Lørdag 12:00 - 23:00</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        //       document.querySelector("#om").classList.add("lysorange");
+        if (window.innerWidth >= 1000) {
+            document.querySelector(".menu_desktop_boks").classList.remove("skjul");
+            document.querySelector(".menu_desktop_knapper").classList.remove("skjul");
+
+            document.querySelector("#om").addEventListener("click", om);
+
+            document.querySelector("#mad").addEventListener("click", mad);
+
+            document.querySelector("#kontakt").addEventListener("click", kontakt);
+
+            document.querySelector("#om").addEventListener("mouseover", () => {
+                document.querySelector("#om").classList.add("orange");
+            });
+
+            document.querySelector("#mad").addEventListener("mouseover", () => {
+                document.querySelector("#mad").classList.add("orange");
+            });
+
+            document.querySelector("#kontakt").addEventListener("mouseover", () => {
+                document.querySelector("#kontakt").classList.add("orange");
+            });
+
+            document.querySelector("#om").addEventListener("mouseout", () => {
+                document.querySelector("#om").classList.remove("orange");
+            });
+
+            document.querySelector("#kontakt").addEventListener("mouseout", () => {
+                document.querySelector("#kontakt").classList.remove("orange");
+            });
+
+            document.querySelector("#mad").addEventListener("mouseout", () => {
+                document.querySelector("#mad").classList.remove("orange");
+            });
+
+
+        }
+        document.querySelector(".menuknap").addEventListener("click", menuVisning);
+
+        function menuVisning() {
+            console.log("der er klikket på menuen");
+            document.querySelector(".drop_down").classList.remove("display_none");
+
+            document.querySelector(".om").addEventListener("mouseover", () => {
+                document.querySelector(".om span").classList.add("orange");
+            });
+
+            document.querySelector(".mad").addEventListener("mouseover", () => {
+                document.querySelector(".mad span").classList.add("orange");
+            });
+
+            document.querySelector(".kontakt").addEventListener("mouseover", () => {
+                document.querySelector(".kontakt span").classList.add("orange");
+            });
+
+            document.querySelector(".om").addEventListener("mouseout", () => {
+                document.querySelector(".om span").classList.remove("orange");
+            });
+
+            document.querySelector(".kontakt").addEventListener("mouseout", () => {
+                document.querySelector(".kontakt span").classList.remove("orange");
+            });
+
+            document.querySelector(".mad").addEventListener("mouseout", () => {
+                document.querySelector(".mad span").classList.remove("orange");
+            });
+
+            document.querySelector(".om").addEventListener("click", () => {
+                window.location.href = "index.html";
+            });
+
+            document.querySelector(".mad").addEventListener("click", () => {
+                window.location.href = "mad.html";
+            });
+
+            document.querySelector(".kontakt").addEventListener("click", kontakt);
+
+
+            document.querySelector(".lukknap").addEventListener("click", lukMenu);
+        }
+
+        function lukMenu() {
+            console.log("luk menu");
+
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+        // ved klik på kontakt i menuen, scrolles der til footeren
+        function kontakt() {
+            console.log("der er klikket på kontakt");
+
+            document.querySelector("footer").scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            document.querySelector(".drop_down").classList.add("display_none");
+        }
+        // Viser desktop menuer - og skjuler mobile menuer - hvis skærmen er større end 1000
+        // lytter på om der bliver trykket på knapper i desktop menu
+        if (window.innerWidth >= 1000) {
+
+            // Skjuler mobile menuer
+            document.querySelector(".drop_down").classList.add("display_none");
+
+            // Viser desktop menuer
+            document.querySelector(".menu_desktop_boks").classList.remove("skjul");
+            document.querySelector(".menu_desktop_knapper").classList.remove("skjul");
+
+
+            // Event listeners, der lytter på, om der bliver trykket på knapper i desktop menuen
+            document.querySelector("#om").addEventListener("click", () => {
+                window.location.href = "index.html";
+            })
+            document.querySelector("#mad").addEventListener("click", () => {
+                window.location.href = "mad.html";
+            })
+            document.querySelector("#kontakt").addEventListener("click", kontakt);
+        }
+    </script>
+</body>
+
+</html>

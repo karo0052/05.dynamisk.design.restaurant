@@ -1,1 +1,1 @@
-# 05.dynamisk.design.restaurant
+www.byluethje.com/kea/2sem/05-dynamisk/restaurant/
